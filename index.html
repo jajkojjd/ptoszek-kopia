@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -31,7 +32,7 @@
         #start {
             position: fixed;
             inset: 0;
-            z-index: 10;
+            z-index: 100;
 
             display: flex;
             align-items: center;
@@ -56,37 +57,37 @@
         🍎 KLIKNIJ, ŻEBY URUCHOMIĆ JAPKO 🍎
     </div>
 
-    <!-- ZAWSZE TEN OBRAZEK -->
-    <img id="japko" src="japko.png" alt="Japko">
+    <!-- GŁÓWNE JAPKO -->
+    <img id="japko" src="JAPKO/japko.png" alt="Japko">
 
-    <!-- MP4 będzie używany tylko jako dźwięk -->
+    <!-- Odtwarzacz dźwięku -->
     <audio id="sound"></audio>
 
     <script>
 
         // =====================================
-        // 13 FILMÓW
+        // 13 FILMÓW MP4 W FOLDERZE JAPKO
         // =====================================
 
         const filmy = [
-            "szybkakaczka.mp4",
-            "ajshdfhjasdbhfjasadfs.mp4",
-            "clearmax.mp4",
-            "duck.mp4",
-            "freestrona.mp4",
-            "golomb.mp4",
-            "gratulacje.mp4",
-            "intro.mp4",
-            "jaczup.mp4",
-            "kaczuszka.mp4",
-            "mushbox.mp4",
-            "puddi.mp4",
-            "rickroll.mp4"
+            "JAPKO/szybkakaczka.mp4",
+            "JAPKO/ajshdfhjasdbhfjasadfs.mp4",
+            "JAPKO/clearmax.mp4",
+            "JAPKO/duck.mp4",
+            "JAPKO/freestrona.mp4",
+            "JAPKO/golomb.mp4",
+            "JAPKO/gratulacje.mp4",
+            "JAPKO/intro.mp4",
+            "JAPKO/jaczup.mp4",
+            "JAPKO/kaczuszka.mp4",
+            "JAPKO/mushbox.mp4",
+            "JAPKO/puddi.mp4",
+            "JAPKO/rickroll.mp4"
         ];
 
 
         // =====================================
-        // LOSOWANIE MP4
+        // LOSOWANIE FILMU
         // =====================================
 
         const losowyFilm =
@@ -198,3 +199,4 @@
 
 </body>
 </html>
+```
