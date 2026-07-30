@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -24,19 +23,19 @@
             width: 180px;
             height: 180px;
             object-fit: contain;
+            cursor: pointer;
             user-select: none;
             -webkit-user-drag: none;
-            cursor: pointer;
         }
 
         #start {
             position: fixed;
             inset: 0;
-            z-index: 100;
+            z-index: 10;
 
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
 
             background: black;
             color: white;
@@ -57,37 +56,17 @@
         🍎 KLIKNIJ, ŻEBY URUCHOMIĆ JAPKO 🍎
     </div>
 
-    <img id="japko" alt="Japko">
+    <!-- ZAWSZE TEN OBRAZEK -->
+    <img id="japko" src="japko.png" alt="Japko">
 
-    <!-- Ukryty odtwarzacz -->
+    <!-- MP4 będzie używany tylko jako dźwięk -->
     <audio id="sound"></audio>
-
 
     <script>
 
-        // ==========================================
-        // 12 OBRAZKÓW
-        // ==========================================
-
-        const obrazki = [
-            "jaczupme.png",
-            "kichajacyptoszek.jpg",
-            "lubieptoszki.png",
-            "ptakwspodniach.jpg",
-            "ptiszka.jpg",
-            "ptok.jpg",
-            "ptoszek.jpg",
-            "zimowyptoszek.jpeg",
-            "zlyptok.jpeg",
-            "grubyptok.jpg",
-            "intro.gif",
-            "jaczup.jpg"
-        ];
-
-
-        // ==========================================
-        // 13 FILMÓW MP4
-        // ==========================================
+        // =====================================
+        // 13 FILMÓW
+        // =====================================
 
         const filmy = [
             "szybkakaczka.mp4",
@@ -106,29 +85,12 @@
         ];
 
 
-        // ==========================================
-        // LOSOWANIE
-        // ==========================================
-
-        const losowyObrazek =
-            obrazki[Math.floor(Math.random() * obrazki.length)];
+        // =====================================
+        // LOSOWANIE MP4
+        // =====================================
 
         const losowyFilm =
             filmy[Math.floor(Math.random() * filmy.length)];
-
-
-        // ==========================================
-        // USTAWIENIE OBRAZKA
-        // ==========================================
-
-        const japko = document.getElementById("japko");
-
-        japko.src = losowyObrazek;
-
-
-        // ==========================================
-        // USTAWIENIE DŹWIĘKU Z MP4
-        // ==========================================
 
         const sound = document.getElementById("sound");
 
@@ -136,9 +98,11 @@
         sound.preload = "auto";
 
 
-        // ==========================================
-        // POZYCJA JAPKA
-        // ==========================================
+        // =====================================
+        // JAPKO
+        // =====================================
+
+        const japko = document.getElementById("japko");
 
         let x = Math.random() * Math.max(1, window.innerWidth - 180);
         let y = Math.random() * Math.max(1, window.innerHeight - 180);
@@ -147,15 +111,14 @@
         let speedY = 3;
 
 
-        // ==========================================
-        // RUCH
-        // ==========================================
+        // =====================================
+        // RUCH JAPKA
+        // =====================================
 
         function moveJapko() {
 
             x += speedX;
             y += speedY;
-
 
             if (
                 x <= 0 ||
@@ -164,7 +127,6 @@
                 speedX *= -1;
             }
 
-
             if (
                 y <= 0 ||
                 y >= window.innerHeight - japko.offsetHeight
@@ -172,18 +134,16 @@
                 speedY *= -1;
             }
 
-
             japko.style.left = x + "px";
             japko.style.top = y + "px";
-
 
             requestAnimationFrame(moveJapko);
         }
 
 
-        // ==========================================
+        // =====================================
         // START
-        // ==========================================
+        // =====================================
 
         const start = document.getElementById("start");
 
@@ -191,37 +151,34 @@
 
             start.style.display = "none";
 
-            // Odtwarza wylosowany MP4
             sound.currentTime = 0;
 
             sound.play().catch(error => {
-                console.log("Nie udało się odtworzyć dźwięku:", error);
+                console.log("Nie udało się odtworzyć MP4:", error);
             });
 
-            // Uruchamia ruch
             moveJapko();
-
         });
 
 
-        // ==========================================
+        // =====================================
         // KLIKNIĘCIE W JAPKO
-        // ==========================================
+        // =====================================
 
         japko.addEventListener("click", () => {
 
             sound.currentTime = 0;
 
             sound.play().catch(error => {
-                console.log("Nie udało się odtworzyć dźwięku:", error);
+                console.log("Nie udało się odtworzyć MP4:", error);
             });
 
         });
 
 
-        // ==========================================
+        // =====================================
         // ZMIANA ROZMIARU OKNA
-        // ==========================================
+        // =====================================
 
         window.addEventListener("resize", () => {
 
@@ -241,4 +198,3 @@
 
 </body>
 </html>
-```
