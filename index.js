@@ -99,6 +99,8 @@ const FILE_DOWNLOADS = [
   'media/images/grubyptok.jpg', //added by @imzeme
   'media/images/ptokzjajami.jpeg', //added by @MARECKIyt
   'media/images/ptiszka.jpg',
+  'media/images/nexil.jpg',
+
 ]
 
 const PHRASES = [
